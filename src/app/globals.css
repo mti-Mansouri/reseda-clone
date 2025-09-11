@@ -161,3 +161,32 @@ img {
 
 /* winter collection : g1 */
 
+.g1{
+  height: 250vh;
+  grid-template-rows: repeat(36,minmax(0,1fr));
+}
+
+.g1 h3 {
+  grid-column: 2 / 10;
+  grid-row: 2 / span 1;
+}
+.g1 .btn-paragraph{
+  grid-column: 2 / 9;
+  grid-row : 11 / 14;
+  
+}
+.g1 .winter1{
+  grid-column: 10 / -2;
+  grid-row: 2 / 19;
+}
+
+.g1 .winter2{
+  padding-top: 20px;
+  grid-row: 14 / 19;
+  grid-column: 2 / 9;
+}
+
+.g1 .winter3{
+  grid-row: 20 / -2;
+  grid-column: 7 / span 10;
+}

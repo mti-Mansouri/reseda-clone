@@ -36,19 +36,26 @@ export default function Home() {
           <button>View services</button>
         </section>
       </section>
+
+      {/* winter */}
       <section className="container g1">
-                <div className="img-wrapper">
-          <img src="part-2.webp" alt="" />
+        <div className="img-wrapper winter1">
+          <img src="part-3-1.webp" alt="" />
         </div>
-        <h3>photography services</h3>
+        <div className="img-wrapper winter2">
+          <img src="part-3-2.webp" alt="" />
+        </div>
+        <div className="img-wrapper winter3">
+          <img src="part-3-3.webp" alt="" />
+        </div>
+
+        {/* title */}
+        <h3>WINTER COLLECTION</h3>
         <section className="btn-paragraph">
           <p>
-            Sofia offers professional photography for agencies and industry
-            clients, with sessions built for wardrobe changes, multiple models,
-            and custom retouching—perfect for campaigns, portfolios, and brand
-            content.
+Photos are metaphors, making the abstract concrete and mystifying the mundane. Be clear, be confident, and don’t overthink it. The beauty of your story is that it’s going to continue to evolve and your site can evolve with it. Your goal should be to make it feel right for right now. Later will take care of itself. 
           </p>
-          <button>View services</button>
+          <button>View full gallery</button>
         </section>
       </section>
       <section className="container g2"></section>
