@@ -12,9 +12,12 @@ export default function Nav(){
           <li><a href="">services</a></li>
           <li><a href="">gallary</a></li>
           <li><a href="">information</a></li>
+          <li> 
+        <div className="shopping-card"><a href="">cart</a></div>
+
+          </li>
         </ul>
 
-        <div className="shopping-card"><a href="">cart</a></div>
       </nav>
     )
 }
