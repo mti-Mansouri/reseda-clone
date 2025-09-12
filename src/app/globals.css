@@ -66,8 +66,8 @@ footer {
 
 .container {
   display: grid;
-  grid-template-columns: repeat(24,minmax(0,1fr));
-    border-bottom: solid 5px #000;
+  grid-template-columns: repeat(24, minmax(0, 1fr));
+  border-bottom: solid 5px #000;
   width: 100%;
 }
 
@@ -97,8 +97,8 @@ img {
 
 
 /* shared */
-.btn-paragraph{
-        display: flex;
+.btn-paragraph {
+  display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
@@ -108,26 +108,28 @@ img {
 .hero {
   height: 160vh;
   padding-top: 80px;
-  grid-template-rows: repeat(14,minmax(0,1fr));
+  grid-template-rows: repeat(14, minmax(0, 1fr));
 }
+
 .hero h1 {
   grid-column: 2 / -2;
-  grid-row:  2 / 5;
+  grid-row: 2 / 5;
   border: 1px solid #000;
 }
 
 .hero-img-wrapper {
   grid-row: 6 / -2;
-  grid-column: 2 / span 13; 
+  grid-column: 2 / span 13;
   /* up to col 14 */
 
 }
 
-.hero h3{
+.hero h3 {
   grid-column: 16 / -2;
   grid-row: 6 / span 1;
 }
-.hero .btn-paragraph{
+
+.hero .btn-paragraph {
 
   grid-column: 16 / -3;
   grid-row: 11 / -2;
@@ -136,23 +138,24 @@ img {
 
 
 /* servisec section */
-.services{
+.services {
   height: 120vh;
-  grid-template-rows: repeat(12,minmax(0,1fr));
+  grid-template-rows: repeat(12, minmax(0, 1fr));
 }
 
 .services h3 {
   grid-column: 2/ span 5;
   grid-row: 2 / span 1;
 }
-.services .img-wrapper{
-  grid-column: 14  / -2;
+
+.services .img-wrapper {
+  grid-column: 14 / -2;
   grid-row: 2 / -2;
 }
 
-.services .btn-paragraph{
-  grid-row : 9 / -2;
-  grid-column : 2 / span 6;
+.services .btn-paragraph {
+  grid-row: 9 / -2;
+  grid-column: 2 / span 6;
 
 
 }
@@ -161,32 +164,113 @@ img {
 
 /* winter collection : g1 */
 
-.g1{
+.g1 {
   height: 250vh;
-  grid-template-rows: repeat(36,minmax(0,1fr));
+  grid-template-rows: repeat(36, minmax(0, 1fr));
 }
 
 .g1 h3 {
   grid-column: 2 / 10;
   grid-row: 2 / span 1;
 }
-.g1 .btn-paragraph{
+
+.g1 .btn-paragraph {
   grid-column: 2 / 9;
-  grid-row : 11 / 14;
-  
+  grid-row: 11 / 14;
+
 }
-.g1 .winter1{
+
+.g1 .winter1 {
   grid-column: 10 / -2;
   grid-row: 2 / 19;
 }
 
-.g1 .winter2{
+.g1 .winter2 {
   padding-top: 20px;
   grid-row: 14 / 19;
   grid-column: 2 / 9;
 }
 
-.g1 .winter3{
+.g1 .winter3 {
   grid-row: 20 / -2;
   grid-column: 7 / span 10;
+}
+
+/* fall collection */
+.g2 {
+  height: 330vh;
+  grid-template-rows: repeat(48, minmax(0, 1fr));
+}
+
+.g2 h3 {
+  grid-column: 2 /span 1;
+  grid-column: 2 / span 5;
+}
+
+.g2 .btn-paragraph {
+  grid-row: 9 / 13;
+  grid-column: 2 / span 6;
+}
+
+.fall1 {
+  grid-column: -8 /-2;
+  grid-row: 2 / 13;
+}
+
+.fall2 {
+  padding-top: 20px;
+  padding-right: 10px;
+  grid-column: 2 / 18;
+  grid-row: 13 / span 12;
+}
+
+.fall3 {
+  grid-column: -8 /-2;
+  grid-row: 25 / 36;
+}
+
+.fall-last-imgs{
+  grid-area: 36 / 2  / -1 / -8;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 10px 10px 50px 0;
+
+}
+
+.fall4 , .fall5 {
+  flex-grow: 1;
+}
+
+/* still lift */
+.g3{
+    height: 330vh;
+  grid-template-rows: repeat(57, minmax(0, 1fr));
+}
+.g3 h3 {
+  grid-column: 2 / 10;
+  grid-row: 2 / span 1;
+}
+
+.g3 .btn-paragraph {
+  grid-column: 2 / 9;
+  grid-row: 13 / 17;
+
+}
+
+.g3 .lift1 {
+  grid-column: 10 / -2;
+  grid-row: 2 / 17;
+}
+
+.lift2{
+  grid-area : 17 /2  / 29 / 10 ;
+  padding: 10px 10px 0 0 ;
+}
+.lift3{
+  grid-area: 29 / -10  / 41 / -2;
+}
+.lift4{
+  grid-area: 41 / -18  / 55  / -10;
+  padding: 10px 10px 0 0;
 }
