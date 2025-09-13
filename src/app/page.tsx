@@ -5,7 +5,7 @@ export default function Home() {
     <section className="main-page-container">
       {/* main */}
       <section className="container hero">
-        <h1>Reseda</h1>
+        <h1 className="logo-txt">Reseda</h1>
         <div className="hero-img-wrapper">
           <img src="part-1.webp" alt="" />
         </div>
