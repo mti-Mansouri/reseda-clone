@@ -393,3 +393,11 @@ footer form {
 .footer-cta2 {
   grid-area: 6 / 2 / 8 / span 5;
 }
+
+/* Gallery page */
+.gallery-page-container{
+  margin-top: 120px;
+}
+.gallery-page-container .container{
+  border: none;
+}
