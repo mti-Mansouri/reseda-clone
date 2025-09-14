@@ -366,14 +366,15 @@ footer .logo-txt{
   grid-area: 2 / 2 / 3 / span 3;
 }
 
-.list-right , .list-left{
+.list-right , .list-left {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   gap: 16px;
-  font-family: 'Space Mono';
+  font-family: 'Inter';
 
 }
+
 footer ul {
   list-style: none;
   padding: 0;
@@ -402,7 +403,9 @@ footer form {
 .footer-cta2 {
   grid-area: 6 / 2 / 8 / span 5;
 }
-
+footer p , footer button {
+  font-family: "Space Mono";
+}
 /* Gallery page */
 .gallery-page-container{
   margin-top: 120px;
@@ -425,7 +428,9 @@ footer form {
   grid-area: 3 / 15 / -3 / -2 ;
 }
 .information-page-container h1 {
-  grid-area:  3 / 2 / span 1 / span 3;
+  grid-area:  3 / 2 / span 1 / span 5;
+    font-family: sans-serif;
+  text-transform: uppercase;
 }
 .info-p1 {
   grid-area: 7 / 2 / 9 / span 7 ;
@@ -439,9 +444,16 @@ footer form {
 .information-page-container form {
   grid-area: 11 / 2 / -2 / span 7 ;
   border: 1px solid #fff;
+  font-family: "Space Mono";
+
 
 }
 
+.information-page-container p {
+  font-family: "Space Mono";
+}
+
+/* Services Page */
 .services-page-container{
   width: 100%;
   padding-top: 80px;
@@ -482,4 +494,12 @@ footer form {
 }
 .service-container ul {
   grid-area: ul;
+}
+
+.service-container ul , .act {
+  font-family: "Space Mono";
+}
+.service-container h4 , .service-container p {
+    font-family: "Archivo Black", sans-serif;
+
 }
