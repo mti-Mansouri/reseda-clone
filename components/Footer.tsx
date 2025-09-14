@@ -23,7 +23,8 @@ export default function Footer() {
             <Link href="/gallery">gallery</Link>
           </li>
           <li>
-            <a href="">INFORMATION</a>
+                    <Link href="/information">information</Link>
+
           </li>
         </ul>
       </section>
