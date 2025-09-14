@@ -441,3 +441,39 @@ footer form {
   border: 1px solid #fff;
 
 }
+
+.services-page-container{
+  width: 100%;
+  padding-top: 80px;
+
+}
+.service-container{
+  height: 100vh;
+  border-bottom: 1px solid #000;
+  display: grid;
+  grid-template-columns: repeat(14,minmax(0,1fr));
+  grid-template-rows: repeat(12,minmax(0,1fr));
+  grid-template-areas:
+   ". . . . . . . . . . . . . ."
+   ". h4 . . . . . . service-img service-img service-img service-img service-img ."
+   ". price . . . . . . service-img service-img service-img service-img service-img ."
+   ". ul . . . . . . service-img service-img service-img service-img service-img ."
+   ". ul . . . . . . service-img service-img service-img service-img service-img ."
+   ". ul . . . . . . service-img service-img service-img service-img service-img ."
+   ". act . . . . . . service-img service-img service-img service-img service-img ."
+   ". . . . . . . . service-img service-img service-img service-img service-img ."
+   ". . . . . . . . service-img service-img service-img service-img service-img ."
+   ". . . . . . . . service-img service-img service-img service-img service-img ."
+   ". . . . . . . . service-img service-img service-img service-img service-img ."
+   ". . . . . . . . . . . . . ."
+   ;
+}
+.service-img {
+  grid-area: service-img;
+}
+.service-container p {
+  grid-area: price;
+}
+.service-container h4{
+  grid-area: h4;
+}
