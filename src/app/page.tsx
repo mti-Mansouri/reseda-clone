@@ -18,7 +18,7 @@ export default function Home() {
             signature style. Sofia believes photos are metaphors, making the
             abstract concrete and mystifying the mundane.
           </p>
-          <button>About Sofia</button>
+          <button className="light-button">About Sofia</button>
         </section>
       </section>
       <section className="container services">
@@ -33,7 +33,7 @@ export default function Home() {
             and custom retouching—perfect for campaigns, portfolios, and brand
             content.
           </p>
-          <button>View services</button>
+          <button className="light-button">View services</button>
         </section>
       </section>
 
@@ -59,7 +59,7 @@ export default function Home() {
             your site can evolve with it. Your goal should be to make it feel
             right for right now. Later will take care of itself.
           </p>
-          <button>View full gallery</button>
+          <button className="light-button">View full gallery</button>
         </section>
       </section>
       <section className="container g2">
@@ -91,7 +91,7 @@ export default function Home() {
             your site can evolve with it. Your goal should be to make it feel
             right for right now. Later will take care of itself.
           </p>
-          <button>View full gallery</button>
+          <button className="light-button">View full gallery</button>
         </section>
       </section>
       <section className="container g3">
@@ -118,7 +118,7 @@ export default function Home() {
             your site can evolve with it. Your goal should be to make it feel
             right for right now. Later will take care of itself.
           </p>
-          <button>View full gallery</button>
+          <button className="light-button">View full gallery</button>
         </section>
       </section>
     </section>

@@ -20,7 +20,7 @@ export default function ServicesPage() {
         </ul>
         <div className="act">
           <input type="number" />
-          <button>Purchase package</button>
+          <button className="light-button">Purchase package</button>
         </div>
       </div>
       <div className="service-container">
@@ -42,7 +42,7 @@ export default function ServicesPage() {
         </ul>
         <div className="act">
           <input type="number" />
-          <button>Purchase package</button>
+          <button className="light-button">Purchase package</button>
         </div>
       </div>
       <div className="service-container">
@@ -62,7 +62,7 @@ export default function ServicesPage() {
         </ul>
         <div className="act">
           <input type="number" />
-          <button>Purchase package</button>
+          <button className="light-button" >Purchase package</button>
         </div>
       </div>
       <div className="service-container">
@@ -82,7 +82,7 @@ export default function ServicesPage() {
         </ul>
         <div className="act">
           <input type="number" />
-          <button>Purchase package</button>
+          <button className="light-button">Purchase package</button>
         </div>
       </div>
     </section>
