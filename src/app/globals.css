@@ -1,26 +1,611 @@
-@import "tailwindcss";
-
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* @import "tailwindcss"; */
+@font-face {
+  font-family: 'Space Mono';
+  src: url(/fonts/SpaceMono-Regular.ttf);
+  font-weight: 400;
+  font-style: normal;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+@font-face {
+  font-family: "Archivo Black", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  src: url(/fonts/ArchivoBlack-Regular.ttf);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+@font-face {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  src: url(/fonts/Inter-VariableFont_opsz\,wght.ttf);
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  --bg-color: rgb(245, 245, 243);
+  --txt-color: rgb(30, 30, 32);
+
+}
+
+/* body {
+
+  background-color: var(--bg-color);
+  color: var(--txt-color);
+} */
+
+.light {
+  background-color: var(--bg-color);
+  color: var(--txt-color);
+}
+
+.dark {
+  background-color: var(--txt-color);
+  color: var(--bg-color);
+}
+
+/* mehdi's */
+
+.main-page-container {
+  width: 100%;
+}
+
+
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  border-bottom: solid 1px #000;
+  font-family: "Inter", sans-serif;
+  display: grid;
+  grid-template-columns: repeat(24, minmax(0, 1fr));
+  grid-template-rows: 1fr;
+  /* place-items: center; */
+  text-transform: uppercase;
+  /* background-color: var(--bg-color); */
+  font-size: 14px;
+
+}
+
+.logo {
+  grid-area: 1 / 2 / 1 / span 3;
+  /* pl-items: center; */
+  align-self: center;
+}
+
+/* .shopping-card{
+  grid-area: 1 / -2 / 1 / -1;
+} */
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  /* gap: 1rem; */
+  align-items: center;
+  justify-content: space-between;
+  /* display: grid;
+  grid-template-columns: subgrid;
+  grid-template-rows: subgrid; */
+  grid-area: 1 / -8 / 1 / -2;
+}
+
+
+/* -------- */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  text-decoration: none;
+  border: none;
+  padding: 16px 30px;
+  /* font: "Space Mono"; */
+  font-family: "Space Mono";
+  cursor: pointer;
+
+
+
+}
+
+
+.logo-txt {
+  font-family: "Archivo Black";
+  text-transform: uppercase;
+  font-size: 290px;
+  text-align: center;
+  letter-spacing: 30px;
+  font-weight: 900;
+
+}
+
+h3 {
+  font-family: "Archivo Black";
+  font-size: 30px;
+  text-transform: uppercase;
+}
+
+/* ------------ */
+
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(24, minmax(0, 1fr));
+  border-bottom: solid 1px #000;
+  width: 100%;
+}
+
+
+
+
+
+.services {
+  height: 100vh;
+}
+
+
+
+
+
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+
+
+/* shared */
+.btn-paragraph {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  font-family: 'Space Mono';
+
+  font-size: 15px;
+}
+
+/* hero */
+.hero {
+  height: 160vh;
+  padding-top: 80px;
+  grid-template-rows: repeat(14, minmax(0, 1fr));
+}
+
+.hero h1 {
+  grid-column: 2 / -2;
+  grid-row: 2 / 5;
+  /* border: 1px solid #000; */
+}
+
+.hero-img-wrapper {
+  grid-row: 6 / -2;
+  grid-column: 2 / span 13;
+  /* up to col 14 */
+
+}
+
+.hero h3 {
+  grid-column: 16 / -2;
+  grid-row: 6 / span 1;
+}
+
+.hero .btn-paragraph {
+
+  grid-column: 16 / -3;
+  grid-row: 11 / -2;
+
+}
+
+
+/* servisec section */
+.services {
+  height: 120vh;
+  grid-template-rows: repeat(12, minmax(0, 1fr));
+}
+
+.services h3 {
+  grid-column: 2/ span 5;
+  grid-row: 2 / span 1;
+}
+
+.services .img-wrapper {
+  grid-column: 14 / -2;
+  grid-row: 2 / -2;
+}
+
+.services .btn-paragraph {
+  grid-row: 9 / -2;
+  grid-column: 2 / span 6;
+
+
+}
+
+/* gallary */
+
+/* winter collection : g1 */
+
+.g1 {
+  height: 250vh;
+  grid-template-rows: repeat(36, minmax(0, 1fr));
+}
+
+.g1 h3 {
+  grid-column: 2 / 10;
+  grid-row: 2 / span 1;
+}
+
+.g1 .btn-paragraph {
+  grid-column: 2 / 9;
+  grid-row: 11 / 14;
+
+}
+
+.g1 .winter1 {
+  grid-column: 10 / -2;
+  grid-row: 2 / 19;
+}
+
+.g1 .winter2 {
+  padding-top: 20px;
+  grid-row: 14 / 19;
+  grid-column: 2 / 9;
+}
+
+.g1 .winter3 {
+  grid-row: 20 / -2;
+  grid-column: 7 / span 10;
+}
+
+/* fall collection */
+.g2 {
+  height: 330vh;
+  grid-template-rows: repeat(48, minmax(0, 1fr));
+}
+
+.g2 h3 {
+  grid-column: 2 /span 1;
+  grid-column: 2 / span 5;
+}
+
+.g2 .btn-paragraph {
+  grid-row: 9 / 13;
+  grid-column: 2 / span 6;
+}
+
+.fall1 {
+  grid-column: -8 /-2;
+  grid-row: 2 / 13;
+}
+
+.fall2 {
+  padding-top: 20px;
+  padding-right: 10px;
+  grid-column: 2 / 18;
+  grid-row: 13 / span 12;
+}
+
+.fall3 {
+  grid-column: -8 /-2;
+  grid-row: 25 / 36;
+}
+
+.fall-last-imgs {
+  grid-area: 36 / 2 / -1 / -8;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 10px 10px 50px 0;
+
+}
+
+.fall4,
+.fall5 {
+  flex-grow: 1;
+}
+
+/* still lift */
+.g3 {
+  height: 330vh;
+  grid-template-rows: repeat(57, minmax(0, 1fr));
+}
+
+.g3 h3 {
+  grid-column: 2 / 10;
+  grid-row: 2 / span 1;
+}
+
+.g3 .btn-paragraph {
+  grid-column: 2 / 9;
+  grid-row: 13 / 17;
+
+}
+
+.g3 .lift1 {
+  grid-column: 10 / -2;
+  grid-row: 2 / 17;
+}
+
+.lift2 {
+  grid-area: 17 /2 / 29 / 10;
+  padding: 10px 10px 0 0;
+}
+
+.lift3 {
+  grid-area: 29 / -10 / 41 / -2;
+}
+
+.lift4 {
+  grid-area: 41 / -18 / 55 / -10;
+  padding: 10px 10px 0 0;
+}
+
+/* footer */
+
+footer {
+  width: 100%;
+  height: 80vh;
+  background-color: var(--txt-color);
+  color: var(--bg-color);
+  grid-template-rows: repeat(12, minmax(0, 1fr));
+  overflow: hidden;
+}
+
+h4 {
+  font-family: "Archivo Black";
+  font-size: 20px;
+}
+
+footer .logo-txt {
+  grid-area: 6 / 2 / 10 / -2;
+}
+
+.ft1 {
+  grid-area: 2 / 2 / 3 / span 3;
+}
+
+.list-right,
+.list-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 16px;
+  font-family: 'Inter';
+
+}
+
+footer ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.list-right {
+  grid-area: 2 / -6 / span 3 / -4;
+
+}
+
+.list-left {
+  grid-area: 2 / -10 / span 3 / -8;
+
+
+}
+
+footer form {
+  display: flex;
+  justify-content: space-between;
+  grid-area: 4 / 2 / span 1 / span 7;
+}
+
+footer form input {
+  padding: 10px 20px;
+
+  flex-grow: 1;
+}
+
+footer form button {
+  text-align: center;
+  margin-left: 10px;
+}
+
+.footer-cta1 {
+  grid-area: 3 / 2 / 4 / span 7;
+
+}
+
+.footer-cta2 {
+  grid-area: 6 / 2 / 8 / span 5;
+}
+
+footer p {
+  font-family: "Space Mono";
+}
+
+/* Gallery page */
+.gallery-page-container {
+  margin-top: 120px;
+}
+
+.gallery-page-container .container {
+  border: none;
+}
+
+/* Information page */
+
+.information-page-container {
+  width: 100%;
+  height: 130vh;
+  padding-top: 80px;
+  display: grid;
+  grid-template-columns: repeat(24, minmax(0, 1fr));
+  grid-template-rows: repeat(18, minmax(0, 1fr));
+}
+
+.information-page-container img {
+  grid-area: 3 / 15 / -3 / -2;
+}
+
+.information-page-container h1 {
+  grid-area: 3 / 2 / span 1 / span 5;
+  font-family: sans-serif;
+  text-transform: uppercase;
+}
+
+.info-p1 {
+  grid-area: 6 / 2 / 9 / span 9;
+}
+
+.info-p2 {
+  grid-area: 9 / 2 / 10 / span 9;
+  /* padding-bottom: 10px; */
+
+}
+
+.information-page-container form {
+  grid-area: 11 / 2 / -2 / span 7;
+  font-family: "Space Mono";
+  font-size: 13px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  /* align-items: flex-start; */
+
+
+}
+
+.information-page-container form input {
+  border: none;
+  border-bottom: 1px solid var(--bg-color);
+  background-color: transparent;
+  color: var(--bg-color);
+  margin-top: 10px;
+}
+.information-page-container form button{
+  width: fit-content;
+}
+.information-page-container textarea {
+  flex-grow: 3;
+  border: none;
+  border-bottom: 1px solid var(--bg-color);
+  background-color: transparent;
+  color: var(--bg-color);
+  margin-bottom: 15px;
+  margin-top: 10px;
+
+
+}
+
+.message-input {
+  /* flex-grow: 1; */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+fieldset {
+  border: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 10px;
+}
+
+legend {
+  padding: 0;
+}
+
+.dark-button {
+  color: var(--bg-color);
+  background-color: var(--txt-color);
+  border: #fff 1px solid;
+
+
+}
+
+.dark-button:hover {
+  color: var(--txt-color);
+  background-color: var(--bg-color);
+}
+
+.light-button {
+  color: var(--txt-color);
+  background-color: var(--bg-color);
+  border: var(--txt-color) 1px solid;
+
+}
+
+.light-button:hover {
+  color: var(--bg-color);
+  background-color: var(--txt-color);
+}
+
+.information-page-container p {
+  font-family: "Space Mono";
+}
+
+/* Services Page */
+.services-page-container {
+  width: 100%;
+  padding-top: 80px;
+
+}
+
+.service-container {
+  height: 100vh;
+  border-bottom: 1px solid #000;
+  display: grid;
+  grid-template-columns: repeat(14, minmax(0, 1fr));
+  grid-template-rows: repeat(12, minmax(0, 1fr));
+  grid-template-areas:
+    ". . . . . . . . . . . . . ."
+    ". h4 h4 h4 . . . . service-img service-img service-img service-img service-img ."
+    ". price . . . . . . service-img service-img service-img service-img service-img ."
+    ". ul ul ul ul . . . service-img service-img service-img service-img service-img ."
+    ". ul ul ul ul . . . service-img service-img service-img service-img service-img ."
+    ". ul ul ul ul . . . service-img service-img service-img service-img service-img ."
+    ". act . . . . . . service-img service-img service-img service-img service-img ."
+    ". . . . . . . . service-img service-img service-img service-img service-img ."
+    ". . . . . . . . service-img service-img service-img service-img service-img ."
+    ". . . . . . . . service-img service-img service-img service-img service-img ."
+    ". . . . . . . . service-img service-img service-img service-img service-img ."
+    ". . . . . . . . . . . . . ."
+  ;
+}
+
+.service-img {
+  grid-area: service-img;
+}
+
+.service-container p {
+  grid-area: price;
+}
+
+.service-container h4 {
+  grid-area: h4;
+}
+
+.act {
+  grid-area: act;
+}
+
+.service-container ul {
+  grid-area: ul;
+}
+
+.service-container ul,
+.act {
+  font-family: "Space Mono";
+}
+
+.service-container h4,
+.service-container p {
+  font-family: "Archivo Black", sans-serif;
+
 }
