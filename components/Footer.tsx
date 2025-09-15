@@ -1,15 +1,35 @@
+"use client";
 import Link from "next/link";
+import {useActionState } from "react";
+import {  useFormStatus } from "react-dom";
+import { subscribe } from "@/app/actions";
+const initialState = {
+  message:""
+}
 
+function SubmitButton (){
+  const { pending } = useFormStatus();
+
+  return(
+    <button type="submit" disabled={pending}>
+      {pending ? 'Signing Up...' : 'Sign Up'}
+    </button>
+  )
+}
 export default function Footer() {
+
+  const [state , formAction]= useActionState(subscribe,initialState)
   return (
     <footer className="container">
       <h4 className="ft1">subscribe</h4>
       <p className="footer-cta1">
         Sign up with your email address to receive news and updates.
       </p>
-      <form action="">
-        <input type="text" placeholder="Email Address" />
-        <button>Sing Up</button>
+      <form action={formAction}>
+        <input type="email"
+        name="email" 
+        placeholder="Email Address" required />
+       <SubmitButton></SubmitButton>
       </form>
       <p className="footer-cta2">We respect your privacy.</p>
       <div className="logo-txt">RESEDA</div>

@@ -394,7 +394,19 @@ footer ul {
 footer form {
   display: flex;
   justify-content: space-between;
-  grid-area: 4 / 2 / span 1 / auto;
+  grid-area: 4 / 2 / span 1 / span 7;
+}
+
+footer form input {
+  padding: 10px 20px;
+  font-family: "Space Mono";
+  flex-grow: 1;
+}
+footer form button{
+  color: var(--bg-color);
+  text-align: center;
+  border: #fff 1px solid;
+margin-left: 10px;
 }
 .footer-cta1{
   grid-area: 3 / 2 / 4 / span 7;
