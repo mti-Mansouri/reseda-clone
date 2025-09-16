@@ -62,11 +62,18 @@ export default function Nav() {
         <li>
           {
             user ? 
-            <img className="user-icon"
-                            style={{
-                  filter: currentPath === "/information" ? "invert(1)" : "none",
-                }}
-            src="/icons/user-solid-full.svg" alt="" />
+            <div
+            style={{
+              cursor:"pointer"
+            }}
+            onClick={handleSignOut}>
+              Sign out
+            </div>
+            // <img className="user-icon"
+            //                 style={{
+            //       filter: currentPath === "/information" ? "invert(1)" : "none",
+            //     }}
+            // src="/icons/user-solid-full.svg" alt="" />
             : 
           <Link href="/login">Sign In</Link>
 
