@@ -37,13 +37,13 @@ export default function Footer() {
         <h4>SITE MAP</h4>
         <ul>
           <li>
-            <Link href="/services">services</Link>
+            <Link className="footer-left-link" href="/services">services</Link>
           </li>
           <li>
-            <Link href="/gallery">gallery</Link>
+            <Link className="footer-left-link" href="/gallery">gallery</Link>
           </li>
           <li>
-            <Link href="/information">information</Link>
+            <Link className="footer-left-link" href="/information">information</Link>
           </li>
         </ul>
       </section>
