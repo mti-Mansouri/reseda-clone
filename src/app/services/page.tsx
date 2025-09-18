@@ -1,21 +1,27 @@
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
+import { supabase } from "../../../lib/supabaseClient";
 import { cookies } from "next/headers";
 import Image from "next/image";
+import ServiceList from "./ServiceCardList";
+import { Database } from "@/types/database";
 
-export const dynamic = "force-dynamic";
+// export const dynamic = "force-dynamic";
 export default async function ServicesPage() {
   const cookieStore = await cookies();
-  // const supabase = createServerComponentClient({ cookies: () => cookieStore });
-  const supabase = createServerComponentClient({ cookies: () => cookieStore });
-
+  const supabase = createServerComponentClient<Database>({
+    cookies: () => cookieStore,
+  });
   const { data: service, error } = await supabase.from("services").select("*");
   if (error) {
     console.error("error in fetching data from from db", error);
   }
+  const serviceLength = service?.length;
+  // const [quantity, setQuantity] = useState([]);
 
   return (
     <section className="services-page-container">
-      {service?.map((item) => (
+      <ServiceList services={service}></ServiceList>
+      {/* {service?.map((item) => (
         <section key={item.id} className="service-container">
           <h4>{item.name}</h4>
           <p>${item.price}</p>
@@ -33,11 +39,15 @@ export default async function ServicesPage() {
             ))}
           </ul>
           <div className="act">
-            <input type="number" />
+            <div className="quantity">
+              <button>-</button>
+              <div>{}</div>
+              <button>+</button>
+            </div>
             <button className="light-button">Purchase package</button>
           </div>
         </section>
-      ))}
+      ))} */}
 
       {/* <div className="service-container">
         <h4>Standard Package</h4>

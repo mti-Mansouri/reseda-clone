@@ -4,36 +4,36 @@ import { usePathname } from "next/navigation";
 import { useEffect, useLayoutEffect, useState } from "react";
 import { supabase } from "../lib/supabaseClient";
 import { User } from "@supabase/supabase-js";
+import { useCart } from "@/app/context/CartContext";
 export default function Nav() {
   const currentPath = usePathname();
   const colors = currentPath === "/information" ? "dark" : "light";
   const [user, setUser] = useState<User | null>(null);
+  const cart = useCart();
 
-  useEffect(
-    ()=>{
-      const getSession = async ()=>{
-        const {data:{session}}= await
-        supabase.auth.getSession();
-        setUser(session?.user ?? null);
-      }
-      getSession();
+  useEffect(() => {
+    const getSession = async () => {
+      const {
+        data: { session },
+      } = await supabase.auth.getSession();
+      setUser(session?.user ?? null);
+    };
+    getSession();
 
-       // Listen for auth state changes
-       const {data:{subscription}} =
-       supabase.auth.onAuthStateChange(
-        (_event, session)=>{
-          setUser(session?.user ?? null)
-        }
-       )
+    // Listen for auth state changes
+    const {
+      data: { subscription },
+    } = supabase.auth.onAuthStateChange((_event, session) => {
+      setUser(session?.user ?? null);
+    });
 
-       return ()=> subscription.unsubscribe();
-    }
-    ,[])
+    return () => subscription.unsubscribe();
+  }, []);
 
-    const handleSignOut = async ()=>{
-      await supabase.auth.signOut()
-    }
-    // ---------------
+  const handleSignOut = async () => {
+    await supabase.auth.signOut();
+  };
+  // ---------------
   useEffect(() => {
     const body = document.body;
     body.classList.remove("dark", "light");
@@ -60,25 +60,23 @@ export default function Nav() {
           <Link href="/information">information</Link>
         </li>
         <li>
-          {
-            user ? 
+          {user ? (
             <div
-            style={{
-              cursor:"pointer"
-            }}
-            onClick={handleSignOut}>
+              style={{
+                cursor: "pointer",
+              }}
+              onClick={handleSignOut}
+            >
               Sign out
             </div>
+          ) : (
             // <img className="user-icon"
             //                 style={{
             //       filter: currentPath === "/information" ? "invert(1)" : "none",
             //     }}
             // src="/icons/user-solid-full.svg" alt="" />
-            : 
-          <Link href="/login">Sign In</Link>
-
-            
-          }
+            <Link href="/login">Sign In</Link>
+          )}
         </li>
         <li>
           <Link href="/shopping-cart">
@@ -90,7 +88,7 @@ export default function Nav() {
                 src="/icons/cart-shopping-light-full.svg"
                 alt=""
               />
-              <span>3</span>
+              <span>{cart.itemCount}</span>
             </div>
           </Link>
         </li>

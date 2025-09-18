@@ -593,8 +593,8 @@ legend {
     ". ul ul ul ul . . . service-img service-img service-img service-img service-img ."
     ". ul ul ul ul . . . service-img service-img service-img service-img service-img ."
     ". ul ul ul ul . . . service-img service-img service-img service-img service-img ."
-    ". act . . . . . . service-img service-img service-img service-img service-img ."
     ". . . . . . . . service-img service-img service-img service-img service-img ."
+    ". act act act act . . . service-img service-img service-img service-img service-img ."
     ". . . . . . . . service-img service-img service-img service-img service-img ."
     ". . . . . . . . service-img service-img service-img service-img service-img ."
     ". . . . . . . . service-img service-img service-img service-img service-img ."
@@ -623,6 +623,20 @@ legend {
 
 .act {
   grid-area: act;
+  /* border: 1px solid red; */
+  display: flex;
+  padding: 10px 0;
+}
+
+.quantity {
+  margin-right: 15px;
+  border-bottom: solid 2px var(--txt-color);
+  display: flex;
+  /* flex-grow: 2; */
+}
+
+.quantity div {
+  flex-grow: 2;
 }
 
 .service-container ul {
