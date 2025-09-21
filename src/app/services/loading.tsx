@@ -48,7 +48,7 @@ export default function LoadingPage() {
         </div>
 
         <div className="act">
-          <button className="light-button skeleton-ui">Purchase package</button>
+          <button className="light-button skeleton-ui"></button>
         </div>
       </section>
     </section>

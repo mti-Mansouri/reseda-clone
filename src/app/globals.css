@@ -16,7 +16,7 @@
 @font-face {
   font-family: "Inter", sans-serif;
   font-optical-sizing: auto;
-  font-weight: 400;
+  font-weight: 300;
   font-style: normal;
   src: url(/fonts/Inter-VariableFont_opsz\,wght.ttf);
 }
@@ -696,4 +696,91 @@ legend {
   50% {
     opacity: 0.5;
   }
+}
+
+
+/* shopping car page */
+
+.shopping-cart-page-container {
+  width: 100%;
+  min-height: 30vh;
+  display: flex;
+  flex-direction: column;
+  margin-top: 90px;
+  padding: 0 40px;
+
+}
+
+.cart-item {
+  display: grid;
+  grid-template-areas:
+    "img-cart img-cart img-cart . item-name item-name . . . . . . item-count item-count . . . . . item-price item-price"
+    "img-cart img-cart img-cart . . . . . . . . . . . . . . . . . ."
+    "img-cart img-cart img-cart . . . . . . . . . . . . . . . . . ."
+    ". . . . . . . . . . . . . . . . . . . . ."
+    ". . . . . . . . . . . . . . . . . . . . ."
+
+
+
+  ;
+  border-bottom: 1px solid rgb(56, 53, 53);
+  width: 100%;
+  height: 200px;
+  font-family: "Space Mono";
+}
+
+.item-name {
+  padding-top: 15px;
+}
+
+.item-count {
+  grid-area: item-count;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cart-item button {
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  border-radius: 50%;
+  background-color: transparent;
+  /* display: inline-block; */
+}
+
+.cart-item button:hover {
+  border-radius: 50%;
+  background-color: rgb(120, 119, 119);
+}
+
+.item-price {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.checkout {
+  width: 100%;
+  height: 200px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.checkout-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 30vw;
+  height: 100%;
+}
+
+.price {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
 }

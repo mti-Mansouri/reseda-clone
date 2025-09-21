@@ -69,7 +69,9 @@ export default function ServiceCard({ service }: { service: Service }) {
           </button>
           <div
             style={{
-              padding: "5px",
+              padding: "10px 0 ",
+              margin: "0 5px",
+              textAlign: "center",
             }}
           >
             {quantity}
