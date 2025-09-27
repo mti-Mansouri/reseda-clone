@@ -1,5 +1,7 @@
 "use client";
-
+import { updateUserCart, getUserCart } from "../actions";
+import { User } from "@supabase/supabase-js";
+import { supabase } from "../../../lib/supabaseClient";
 import {
   createContext,
   ReactNode,
@@ -13,6 +15,7 @@ export interface CartItem {
   name: string;
   price: number;
   quantity: number;
+  photo: string;
 }
 
 interface CartContextType {
@@ -27,6 +30,9 @@ const CartContext = createContext<CartContextType | undefined>(undefined);
 
 export const CartProvider = ({ children }: { children: ReactNode }) => {
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
+  const [user, setUser] = useState<User | null>(null);
+
+  // ----
   useEffect(() => {
     const storedCart = localStorage.getItem("shoppingCart");
     if (storedCart) {
@@ -36,7 +42,61 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
 
   useEffect(() => {
     localStorage.setItem("shoppingCart", JSON.stringify(cartItems));
-  }, [cartItems]);
+    if (user) {
+      updateUserCart(cartItems);
+    }
+  }, [cartItems, user]);
+  // ----
+  useEffect(() => {
+    const getSession = async () => {
+      const {
+        data: { session },
+      } = await supabase.auth.getSession();
+      setUser(session?.user ?? null);
+    };
+    getSession();
+
+    const {
+      data: { subscription },
+    } = supabase.auth.onAuthStateChange((_event, session) => {
+      setUser(session?.user ?? null);
+
+      const syncCart = async () => {
+        const localCartJson = localStorage.getItem("shoppingCart");
+        const localCart: CartItem[] = localCartJson
+          ? JSON.parse(localCartJson)
+          : [];
+        if (session) {
+          const dbCart = await getUserCart();
+          if (dbCart) {
+            const mergedCartMap = new Map(
+              dbCart.map((item) => [item.id, item])
+            );
+            localCart.forEach((localItem) => {
+              const existingItem = mergedCartMap.get(localItem.id);
+              if (existingItem) {
+                existingItem.quantity += localItem.quantity;
+                // update db one
+              } else {
+                mergedCartMap.set(localItem.id, localItem);
+              }
+            });
+            const mergedCart = Array.from(mergedCartMap.values());
+            setCartItems(mergedCart);
+          } else {
+            setCartItems(localCart);
+          }
+        } else {
+          setCartItems([]);
+        }
+      };
+      // ---------
+      syncCart();
+    });
+
+    return () => subscription.unsubscribe();
+  }, []);
+  // ----
 
   const addToCart = (item: CartItem) => {
     setCartItems((prev) => {

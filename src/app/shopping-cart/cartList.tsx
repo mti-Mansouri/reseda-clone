@@ -17,12 +17,20 @@ export default function CartList() {
       ) : (
         cart.cartItems.map((item) => (
           <section key={item.id} className="cart-item">
-            <div className="img-cart">{/* <Image ref={item.}></Image> */}</div>
+            <div className="img-cart">
+              <Image
+                alt={item.name ?? "item image"}
+                src={item.photo ?? "/placeholder.svg"}
+                // width={}
+                fill
+              ></Image>
+            </div>
             <p className="item-name" style={{ gridArea: "item-name" }}>
               {item.name}
             </p>
             <div className="item-count" style={{ gridArea: "item-count" }}>
               <button
+                className="quantity-btn"
                 onClick={() => {
                   let newq = item.quantity - 1;
                   cart.updateQuantity(item.id, newq);
@@ -32,6 +40,7 @@ export default function CartList() {
               </button>
               <div style={{ padding: "5px" }}>{item.quantity}</div>
               <button
+                className="quantity-btn"
                 onClick={() => {
                   let newq = item.quantity + 1;
                   cart.updateQuantity(item.id, newq);
@@ -43,6 +52,7 @@ export default function CartList() {
             <div className="item-price" style={{ gridArea: "item-price" }}>
               <div>${item.price}</div>
               <button
+                className="quantity-btn"
                 onClick={() => {
                   cart.removeFromCart(item.id);
                 }}

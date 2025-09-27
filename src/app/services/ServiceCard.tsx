@@ -28,6 +28,7 @@ export default function ServiceCard({ service }: { service: Service }) {
       name: service.name,
       price: service.price,
       quantity: quantity,
+      photo: service.image_url,
     });
     setTimeout(() => {
       SetbtnState("added");
