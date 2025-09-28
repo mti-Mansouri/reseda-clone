@@ -1,13 +1,26 @@
+"use client";
 import Image from "next/image";
 import "@/app/mainPageStyles.css";
+import { useModal } from "./context/ModalContext";
+
 export default function Home() {
+  const { openModal } = useModal();
+  const handleImageClick = (imageUrl: string) => {
+    openModal(
+      <img src={imageUrl} alt="Expanded view" className="modal-image" />
+    );
+  };
   return (
     <section className="main-page-container">
       {/* main */}
       <section className="container hero">
         <h1 className="logo-txt">Reseda</h1>
         <div className="hero-img-wrapper">
-          <img src="part-1.webp" alt="" />
+          <img
+            onClick={() => handleImageClick("/part-1.webp")}
+            src="part-1.webp"
+            alt=""
+          />
         </div>
 
         <h3>LA-based Photography by Sofia Parazi</h3>
@@ -23,7 +36,11 @@ export default function Home() {
       </section>
       <section className="container services">
         <div className="img-wrapper">
-          <img src="part-2.webp" alt="" />
+          <img
+            onClick={() => handleImageClick("/part-2.webp")}
+            src="part-2.webp"
+            alt=""
+          />
         </div>
         <h3>photography services</h3>
         <section className="btn-paragraph">
@@ -40,13 +57,25 @@ export default function Home() {
       {/* winter */}
       <section className="container g1">
         <div className="img-wrapper winter1">
-          <img src="part-3-1.webp" alt="" />
+          <img
+            onClick={() => handleImageClick("/part-3-1.webp")}
+            src="part-3-1.webp"
+            alt=""
+          />
         </div>
         <div className="img-wrapper winter2">
-          <img src="part-3-2.webp" alt="" />
+          <img
+            onClick={() => handleImageClick("/part-3-2.webp")}
+            src="part-3-2.webp"
+            alt=""
+          />
         </div>
         <div className="img-wrapper winter3">
-          <img src="part-3-3.webp" alt="" />
+          <img
+            onClick={() => handleImageClick("/part-3-3.webp")}
+            src="part-3-3.webp"
+            alt=""
+          />
         </div>
 
         {/* title */}
@@ -64,20 +93,40 @@ export default function Home() {
       </section>
       <section className="container g2">
         <div className="img-wrapper fall1">
-          <img src="part-4-1.webp" alt="" />
+          <img
+            onClick={() => handleImageClick("/part-4-1.webp")}
+            src="part-4-1.webp"
+            alt=""
+          />
         </div>
         <div className="img-wrapper fall2">
-          <img src="part-4-2.webp" alt="" />
+          <img
+            onClick={() => handleImageClick("/part-4-2.webp")}
+            src="part-4-2.webp"
+            alt=""
+          />
         </div>
         <div className="img-wrapper fall3">
-          <img src="part-4-3.webp" alt="" />
+          <img
+            onClick={() => handleImageClick("/part-4-3.webp")}
+            src="part-4-3.webp"
+            alt=""
+          />
         </div>
         <section className="fall-last-imgs">
           <div className="img-wrapper fall4">
-            <img src="part-4-4.webp" alt="" />
+            <img
+              onClick={() => handleImageClick("/part-4-4.webp")}
+              src="part-4-4.webp"
+              alt=""
+            />
           </div>
           <div className="img-wrapper fall5">
-            <img src="part-4-5.webp" alt="" />
+            <img
+              onClick={() => handleImageClick("/part-4-5.webp")}
+              src="part-4-5.webp"
+              alt=""
+            />
           </div>
         </section>
 
@@ -96,16 +145,32 @@ export default function Home() {
       </section>
       <section className="container g3">
         <div className="img-wrapper lift1">
-          <img src="part-5-1.webp" alt="" />
+          <img
+            onClick={() => handleImageClick("/part-5-1.webp")}
+            src="part-5-1.webp"
+            alt=""
+          />
         </div>
         <div className="img-wrapper lift2">
-          <img src="part-5-2.webp" alt="" />
+          <img
+            onClick={() => handleImageClick("/part-5-2.webp")}
+            src="part-5-2.webp"
+            alt=""
+          />
         </div>
         <div className="img-wrapper lift3">
-          <img src="part-5-4.webp" alt="" />
+          <img
+            onClick={() => handleImageClick("/part-5-4.webp")}
+            src="part-5-4.webp"
+            alt=""
+          />
         </div>
         <div className="img-wrapper lift4">
-          <img src="part-5-3.webp" alt="" />
+          <img
+            onClick={() => handleImageClick("/part-5-3.webp")}
+            src="part-5-3.webp"
+            alt=""
+          />
         </div>
 
         {/* title */}

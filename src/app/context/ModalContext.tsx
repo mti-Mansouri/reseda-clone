@@ -6,6 +6,7 @@ interface ModalContextType {
   isOpen: boolean;
   openModal: (content: ReactNode) => void;
   closeModal: () => void;
+  modalContent: ReactNode;
 }
 
 const ModalContext = createContext<ModalContextType | undefined>(undefined);

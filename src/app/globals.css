@@ -809,3 +809,70 @@ legend {
   margin: 0 5px;
   /* border: 1px solid #ccc; */
 }
+
+
+/* -------------- */
+
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  /* animation: fadeIn 0.3s ease; */
+}
+
+.modal-panel {
+  /* background-color: var(--bg-color); */
+  /* padding: 2rem; */
+  border-radius: 8px;
+  /* border: 2px solid red; */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  /* width: 90%; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-close-btn {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  width: 30px;
+  height: 30px;
+  background-color: transparent;
+  color: var(--bg-color);
+  font-family: 600;
+  font-size: 2rem;
+}
+
+.modal-close-btn:hover {
+  cursor: pointer;
+}
+
+.modal-image {
+  /* These two lines are the key */
+  max-width: 60%;
+  max-height: 60%;
+  padding: 1rem;
+
+  /* Optional: for a cleaner look */
+  display: block;
+  object-fit: contain;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+
+}
