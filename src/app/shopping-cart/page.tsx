@@ -1,5 +1,5 @@
 import CartList from "./cartList";
-export default function ShoppingCartOage() {
+export default function ShoppingCartPage() {
   return (
     <section className="shopping-cart-page-container">
       <section>

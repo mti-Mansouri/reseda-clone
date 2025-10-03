@@ -7,11 +7,14 @@ import { redirect } from "next/navigation";
 import { CartItem } from "./context/CartContext";
 import { createServerActionClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
-import { Database } from "./types/database";
+import { Database } from "@/types/database";
 import { use } from "react";
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!);
 
 export async function createCheckoutSession(items: CartItem[]) {
+  console.log("here");
+  console.log("checkingout actions");
+
   const lineItems = items.map((item) => ({
     price_data: {
       currency: "usd",
@@ -32,11 +35,7 @@ export async function createCheckoutSession(items: CartItem[]) {
       cancel_url: `${process.env.NEXT_PUBLIC_SITE_URL}/shopping-cart`,
     });
 
-    if (session.url) {
-      redirect(session.url);
-    } else {
-      throw new Error("Could not create Stripe session");
-    }
+    return { url: session.url };
   } catch (e) {
     console.error("Error creating Stripe session:", e);
     return { error: "Could not create checkout session." };
