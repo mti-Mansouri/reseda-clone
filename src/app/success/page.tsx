@@ -1,6 +1,6 @@
 import Stripe from "stripe";
 
-export default async function SuccessPage({
+export default function SuccessPage({
   searchParams,
 }: {
   searchParams: { [key: string]: string | string[] | undefined };
@@ -11,7 +11,7 @@ export default async function SuccessPage({
   let session: Stripe.Checkout.Session | null = null;
   if (sessionId) {
     const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!);
-    session = await stripe.checkout.sessions.retrieve(sessionId);
+    // session = await stripe.checkout.sessions.retrieve(sessionId);
   }
 
   return (
@@ -26,7 +26,7 @@ export default async function SuccessPage({
         <>
           <p>Thank you for your order!</p>
           {/* <p>Session ID: {session.id}</p> */}
-          <p>Amount paid: ${session.amount_total! / 100}</p>
+          {/* <p>Amount paid: ${session.amount_total! / 100}</p> */}
         </>
       )}
     </section>
